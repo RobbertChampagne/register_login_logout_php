@@ -1,0 +1,52 @@
+html,body{
+    height: 100%;
+}
+
+/*INDEX/LOGIN/REGISTER*/
+body{
+    background-image: url('images/bcpink.png');
+}
+
+#loginregisterdiv{
+    width: 250px; 
+    position: absolute;
+    top: 50%;
+    margin-top: -150px;
+    left: 50%;
+    margin-left: -150px;
+    opacity: 0.9;
+    border: 3px solid rgb(255, 146, 228);
+    border-radius: 10%;
+    background-color: rgb(243, 210, 235);
+    padding: 2px;
+}
+
+#inlogregistericon{
+    margin-left: 38%;
+}
+
+#inlogregistericon:hover{
+    margin-left: 38%;
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.loginregisterinputs{
+    width: 96%; 
+    border: 1px solid rgb(255, 146, 228);
+    background-color: "white";
+    outline: none !important; /*no border around button after clicking*/
+    margin-left: 2px;
+}
+
+.loginregisterbuttons{
+    width: 80%; 
+    height: 40px;
+    border: 1px solid rgb(255, 146, 228);
+    background-color: rgb(255, 146, 228);
+    border-radius: 5%;
+    margin-left: 10%;
+    font-size: large;
+    font-weight: bold;
+}
+
