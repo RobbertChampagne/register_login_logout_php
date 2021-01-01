@@ -36,28 +36,28 @@ if(isset($_GET['logout'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+   
+    <?php include "navbar.php"; ?>
 
-   <h1>Home Page</h1>
+    <div id=homepagecontainer>
+        <div class=games>
+            <a id="link1" class="gameiconpreview" href="gamewindow.php"> <img id="fairygameimg" src="images\fairygame\fairy.png" > </a> 
+            <a id="link2" class="gameiconpreview" href=""> <img class="constructionimg" src="images\construction.png" > </a> 
+            <a id="link3" class="gameiconpreview" href=""> <img class="constructionimg" src="images\construction.png" > </a> 
+        </div>
 
-   <!--success message = "Logged in succesfully"-->
-    <?php if(isset($_SESSION['success'])) : ?>
-    <h3>
-        <?php
-            echo $_SESSION['success'];
-            unset($_SESSION['success']) //success message gone after refresh page
-        ?>
-    </h3>
-    <?php endif ?>
+        <div class=games>
+            <a id="link4" class="gameiconpreview" href=""> <img class="constructionimg" src="images\construction.png" > </a> 
+            <a id="link5" class="gameiconpreview" href=""> <img class="constructionimg" src="images\construction.png" > </a> 
+            <a id="link6" class="gameiconpreview" href=""> <img class="constructionimg" src="images\construction.png" > </a> 
+        </div>
 
-
-    <!--if the user logs in print info about him-->
-    <?php if(isset($_SESSION['name'])) : ?>
-        <h3>Welcome <strong><?php echo $_SESSION['name']; ?></strong></h3>
-
-        <a href="login.php?logout='1'">logout</a>
-
-    <?php endif ?>
-
+        <div class=games>
+            <a id="link7" class="gameiconpreview" href=""> <img class="constructionimg" src="images\construction.png" > </a> 
+            <a id="link8" class="gameiconpreview" href=""> <img class="constructionimg" src="images\construction.png" > </a> 
+            <a id="link9" class="gameiconpreview" href=""> <img class="constructionimg" src="images\construction.png" > </a> 
+        </div>
+    </div>
 
     <script src="loginregisterscript.js"></script>
 
