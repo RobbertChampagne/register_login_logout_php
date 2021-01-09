@@ -29,6 +29,7 @@ function loaded(){
     let isGameOver = false;
     let score = 0;
     let hit = false;
+    beenHitExecuted = false;
     
 
 
@@ -138,25 +139,42 @@ function loaded(){
 
                 // WHERE THE HIT TAKES PLACE NEEDS SOME MORE FINE TUNING
             
-                //fairy does not jump
-                if (rect1.x + rect1.width >= rect2.x ) { //righttop F >= lefttop O
+                //fairy does not jump or comes down to soon
+                if (rect1.x + rect1.width >= rect2.x + rect2.width && rect1.x <= rect2.x + rect2.width ) { //righttop F >= lefttop O
                     if(rect1.y + rect1.height >= rect2.y){ //leftbottom F >= lefttop O
-                        isGameOver = true; //stops the game loop
-                        hit = true; //so score count stops
-                        fairy.style.visibility = "hidden"; //hides fairy after hit
-                        restartButton.style.visibility = "visible";//show restart button 
-                        
+                        beenHit();                      
                     }
                 }
 
                 //if fairy jumps to late 
                 if(rect1.y + rect1.height >= rect2.y && rect1.y + rect1.height < rect2.y + rect2.height ){ //leftbottom F is in the middle of the obstacle
                     if(rect1.x + rect1.width >= rect2.x && rect1.x <= rect2.x){ //righttop F >= lefttop O && lefttop F <= lefttop O
-                        isGameOver = true;
-                        hit = true;
-                        fairy.style.visibility = "hidden";
-                        restartButton.style.visibility = "visible";
-                    
+                        beenHit();
+                    }
+                }
+
+                function beenHit(){
+                    if(! beenHitExecuted){
+                        beenHitExecuted = true; //so it only runs once 
+
+                        isGameOver = true; //stops the game loop
+                        hit = true; //so score count stops
+                        fairy.style.visibility = "hidden"; //hides fairy after hit
+                        restartButton.style.visibility = "visible";//show restart button 
+
+                        //AJAX request to check if a new highscore is set
+                        let scoreCount = document.getElementById("scoreCount").textContent;
+                        let xhttp = new XMLHttpRequest();
+                        xhttp.onreadystatechange = function() {
+                            if (this.readyState == 4 && this.status == 200) {
+                                console.log(this.response);
+                                //document.getElementById("txtHint").innerHTML = this.responseText;
+                            }
+                        };
+                        xhttp.open("POST", "score.php?score="+scoreCount, true);
+                        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                        xhttp.send();
+                        //console.log(scoreCount);
                     }
                 }
  

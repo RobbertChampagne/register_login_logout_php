@@ -160,6 +160,8 @@ body{
         transform: scale(1.1);
     }
 }
+
+
 @media screen and (min-width: 735px){ /*from 735px and bigger*/
 
     /*NAVBAR*/
@@ -258,6 +260,25 @@ body{
 
     .constructionimg:hover{ /*img*/
         transform: scale(1.1);
+    }
+
+    /*HIGHSCORE WINDOW*/
+    #highscorecontainer{
+        width: 250px; 
+        height: 250px;
+        position: absolute;
+        top: 50%;
+        margin-top: -150px;
+        left: 50%;
+        margin-left: -150px;
+        opacity: 0.9;
+        border: 3px solid rgb(255, 146, 228);
+        background-color: rgb(243, 210, 235);
+        padding: 2px;
+    }
+
+    #highscoreTitle{
+        text-align: center;
     }
 
 }
