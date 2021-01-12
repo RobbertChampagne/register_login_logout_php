@@ -1,7 +1,28 @@
 window.addEventListener("load", loaded);
+window.addEventListener("resize", windowresize);
 
 function loaded(){
+
     if(window.innerWidth > 735 ){
+
+        //AJAX request to DISPLAY HIGHSCORE
+        let highScoreCountLabel = document.getElementById("highScoreCount");
+        let displayMyHighScores = true;
+        let xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                let highscores = JSON.parse(this.response); //get arrays with strings of query from PHP
+                
+                let score = document.createTextNode(highscores[0]);
+                highScoreCountLabel.appendChild(score)
+                
+            }
+        };
+        xhttp.open("POST", "../homeScore/score.php?displayMyHighScores="+displayMyHighScores, true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send();
+
+
         //EVENTLISTENER
         window.addEventListener("resize", windowresize);
         document.addEventListener("keydown", jump);
@@ -198,22 +219,12 @@ function loaded(){
 
 
     
-    //AJAX request to DISPLAY HIGHSCORE
-    let highScoreCountLabel = document.getElementById("highScoreCount");
-    let displayMyHighScores = true;
-    let xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-            let highscores = JSON.parse(this.response); //get arrays with strings of query from PHP
-            
-            let score = document.createTextNode(highscores[0]);
-            highScoreCountLabel.appendChild(score)
-            
-        }
-    };
-    xhttp.open("POST", "../homeScore/score.php?displayMyHighScores="+displayMyHighScores, true);
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send();
+    
+}
+
+//WINDOW RESIZE
+function windowresize(){ //when the window resize there will be a other bottom for the elements
+    location.reload(); //same as reload window
 }
     
     
