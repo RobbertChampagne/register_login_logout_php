@@ -50,6 +50,10 @@ body{
     font-weight: bold;
 }
 
+#passwordinput { /*showing dots when typing password*/
+    -webkit-text-security: disc;
+}
+
                     /*SCROLLBAR*/
 
 /*width of the scrollbar*/
