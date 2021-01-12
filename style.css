@@ -112,7 +112,7 @@ body{
     }
 
     .navbarlink:hover {
-        background-color: rgb(255, 146, 228);
+        background-color:  rgb(245, 176, 228);
     }
 
     /*GAME OVERVIEW WINDOW*/
@@ -159,6 +159,50 @@ body{
     .constructionimg:hover{ /*img*/
         transform: scale(1.1);
     }
+
+    /*HIGHSCORE WINDOW*/
+    #fairyGameHighscoreContainer{
+        width: 250px; 
+        height: 250px;
+        float: left;
+        margin-left: 25%;
+        opacity: 0.9;
+        border: 3px solid rgb(245, 176, 228);
+        background-color: rgb(243, 210, 235);
+        padding: 2px;
+    }
+
+    .highscoreTitle{
+        text-align: center;
+    }
+
+    #fairyGameHighscoreTable {
+      border-collapse: collapse;
+      width: 100%;    
+    }
+
+    th,td {
+        
+        padding: 6px;
+    }
+
+    th {
+        height: 30px;
+        background-color: rgb(245, 176, 228);
+        border: 1px solid  black;
+    }
+
+    td {
+        border: 1px solid black;
+    }
+
+    tr:hover{
+        background-color:  rgb(245, 176, 228);
+    }
+
+    .score{
+        text-align: right;
+    }
 }
 
 
@@ -196,22 +240,22 @@ body{
     }
 
     .navbarright{
-    flex-grow: 1;
-    border-right: 1px solid #bbb;
-    border-left: 1px solid #bbb;
+        flex-grow: 1;
+        border: 1px solid #bbb;
+        border-right: hidden;
     }
     
     .navbarlink {
         display: block;
         color: black;
         text-align: center;
-        padding: 30px 16px;
+        padding: 10px  ;
+        margin-top: 10%;
         text-decoration: none;
     }
 
-    .navbarlink:hover {
-        background-color: rgb(255, 146, 228);
-        height: 40%;
+    .navbarright:hover {
+        background-color:  rgb(245, 176, 228);
     }
 
     /*GAME OVERVIEW WINDOW*/
@@ -236,9 +280,7 @@ body{
         grid-gap: 30px;
     }
 
-    .gameiconpreview{ /*link*/
-    /* border: 1px solid rgb(243, 210, 235);*/
-    }
+    
 
     #fairygameimg{ /*img*/
         padding: 10px;
@@ -263,22 +305,50 @@ body{
     }
 
     /*HIGHSCORE WINDOW*/
-    #highscorecontainer{
+    #fairyGameHighscoreContainer{
         width: 250px; 
         height: 250px;
-        position: absolute;
-        top: 50%;
-        margin-top: -150px;
-        left: 50%;
-        margin-left: -150px;
+        float: left;
+        margin-left: 40%;
+        margin-top: 15%;
         opacity: 0.9;
-        border: 3px solid rgb(255, 146, 228);
+        border: 3px solid rgb(245, 176, 228);
         background-color: rgb(243, 210, 235);
         padding: 2px;
     }
 
-    #highscoreTitle{
+    .highscoreTitle{
         text-align: center;
     }
+
+    #fairyGameHighscoreTable {
+      border-collapse: collapse;
+      width: 100%;    
+    }
+
+    th,td {
+        
+        padding: 6px;
+    }
+
+    th {
+        height: 30px;
+        background-color: rgb(245, 176, 228);
+        border: 1px solid  black;
+    }
+
+    td {
+        border: 1px solid black;
+    }
+
+    tr:hover{
+        background-color:  rgb(245, 176, 228);
+    }
+
+    .score{
+        text-align: right;
+    }
+  
+    
 
 }
