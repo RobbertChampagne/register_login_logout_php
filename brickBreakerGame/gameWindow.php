@@ -24,9 +24,19 @@ if(!isset($_SESSION['name'])){
     <title>BrickBreaker Game</title>
 </head>
 <body>
+
     <?php include "../navbar.php"; ?>
+    
+    <img id="finished" src="..\images\brickbreaker\gamefinished.png" hidden>
+    <img id="bg" src="..\images\brickbreaker\bg.jpg" hidden>
     <img id="ralph" src="..\images\brickbreaker\ralph.png" alt="" hidden>
-    <canvas id="gameScreen" width="780" height="450"></canvas>
+    <img id="donut" src="..\images\brickbreaker\donut.png" alt="" hidden>
+    <img id="brick" src="..\images\brickbreaker\brick.png" alt="" hidden>
+    <img id="candy1" src="..\images\brickbreaker\candy1.png" alt="" hidden>
+    <img id="candy2" src="..\images\brickbreaker\candy2.png" alt="" hidden>
+    <img id="candy3" src="..\images\brickbreaker\candy3.png" alt="" hidden>
+    
+    <canvas id="gameScreen" width="750" height="450"></canvas>
 
 </body>
 </html>

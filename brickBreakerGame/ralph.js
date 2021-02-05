@@ -1,17 +1,17 @@
 
 export default class Ralph{ //'export default' so we can use class in brickBreakerScript.js
 
-    constructor(windowWidth, windowHeight){
+    constructor(game){
         this.width = 105;
         this.height = 120;
-        this.windowWidth = windowWidth;
+        this.windowWidth = game.windowWidth;
 
         this.maxSpeed = 5;
         this.speed = 0;
 
         this.position = {
-            x: windowWidth / 2 - (this.width / 2) , //midden van het scherm
-            y: windowHeight  - this.height  ,  //10 off the bottom
+            x: game.windowWidth / 2 - (this.width / 2) , //midden van het scherm
+            y: game.windowHeight  - this.height  ,  //10 off the bottom
         };
     }
     
@@ -22,9 +22,6 @@ export default class Ralph{ //'export default' so we can use class in brickBreak
 
 
     update(deltaTime){ //deltaTime = changing time (how mutch time has past since last time this is updated)
-        if(!deltaTime){ //at the start there is no passed time 
-            return;
-        }
         
         this.position.x += this.speed; //moves in the way the speed is declared neg. or pos.
 
@@ -42,8 +39,12 @@ export default class Ralph{ //'export default' so we can use class in brickBreak
         this.speed  = -this.maxSpeed; //speed becomes negative so it moves to the left
     }
 
-    
+
     moveRight(){
         this.speed  = this.maxSpeed; //speed becomes positive so it moves to the right
+    }
+
+    stop(){
+        this.speed  = 0 //when the key is released ralph stops moving
     }
 }

@@ -1,25 +1,23 @@
+import Game from "./game.js";
 
 window.addEventListener("load", loaded);
 //window.addEventListener("resize", windowresize);
 
-import Ralph from './ralph.js'  
-import InputHandler from './input.js'  
+ 
 
 function loaded(){
 
     let canvas = document.getElementById("gameScreen");
     let ctx = canvas.getContext("2d");
 
-    const GAME_WIDTH = 780;
+    let background = document.getElementById("bg"); //background img
+    
+
+    const GAME_WIDTH = 750;
     const GAME_HEIGHT = 450;
 
-
-    let ralph = new Ralph(GAME_WIDTH, GAME_HEIGHT) //create ralph
-    ralph.draw(ctx); //draw the first ralph
-
-
-    new InputHandler(ralph);
-
+   
+    let game = new Game(GAME_WIDTH, GAME_HEIGHT); //create game
 
 
     let lastTime = 0; //what was the last time? start at 0
@@ -28,16 +26,18 @@ function loaded(){
         let deltaTime = timeStamp - lastTime; //how mutch time has passed
         lastTime = timeStamp;
 
-        ctx.clearRect(0,0,780,450);     //clear full canvas 
-        ralph.update(deltaTime);        //update ralph
-        ralph.draw(ctx);                //draw new ralph
-        
+        ctx.clearRect(0,0,GAME_WIDTH, GAME_HEIGHT);     //clear full canvas 
+        ctx.drawImage(background,0,0,750,450);          //background img
+        game.update(deltaTime);
+        game.draw(ctx);
+
+
         //requestAnimationFrame from the browser 
         //-> when the next frame is ready call gameloop again and pass the timeStamp
         requestAnimationFrame(gameLoop); 
     }
 
-    gameLoop();
+    requestAnimationFrame(gameLoop); //call gameloop when screen is ready
 
 
 }
