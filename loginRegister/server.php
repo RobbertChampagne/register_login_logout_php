@@ -14,7 +14,7 @@ $password = "";
 
 
 //CONNECT TO DB
-$dbPassword = "robgamesbert1";
+$dbPassword = "********";
 $dbUserName = "games";
 $dbServer = "localhost";
 $dbName = "games";
